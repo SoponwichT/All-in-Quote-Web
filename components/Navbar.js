@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav>
             <div className='logo text-4xl'>
-                <h1>All in Quote</h1>
+                <Link href="/"><h1 className="cursor-pointer">All in Quote</h1></Link>
             </div>
             <div className="category text-xl font-semibold">
                 <Link href="/"><a>Life</a></Link>
