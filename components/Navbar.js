@@ -9,9 +9,9 @@ const Navbar = () => {
                 <Link href="/"><h1 className="cursor-pointer">All in Quote</h1></Link>
             </div>
             <div className="category text-xl font-semibold">
-                <Link href="/"><a>Life</a></Link>
-                <Link href="/"><a>Work</a></Link>
-                <Link href="/"><a>Entertain</a></Link>
+                <Link href="/category/life"><a>Life</a></Link>
+                <Link href="/category/work"><a>Work</a></Link>
+                <Link href="/category/entertain"><a>Entertain</a></Link>
             </div>
             <div className='text-2xl '>
                 <Link href="/addquote"><a>Share your favorite <AddIcon w={4} h={4} /></a></Link>
