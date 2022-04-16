@@ -5,7 +5,8 @@ import {
     Button,
     RadioGroup,
     HStack,
-    Radio
+    Radio,
+    Select
 } from '@chakra-ui/react'
 import { useState } from 'react';
 
@@ -13,8 +14,12 @@ export default function addquote() {
     const [text, setText] = useState("")
     const [author, setAuthor] = useState("")
     const [color, setColor] = useState(0)
-    const [category, setCategory] = useState("")
-
+    const [category, setCategory] = useState("Motivational")
+    const categories = ["Motivational",
+        "Inspirational",
+        "Positive",
+        "Life",
+        "Funny"]
 
     const submitQuote = (e) => {
         e.preventDefault();
@@ -35,6 +40,7 @@ export default function addquote() {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
+                window.location="/"
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -55,19 +61,21 @@ export default function addquote() {
                         <Input value={author} onChange={(e) => setAuthor(e.target.value)} id='author' placeholder='Your name' />
                     </FormControl>
                     <FormControl isRequired>
-                        <RadioGroup>
+                        <RadioGroup value={color} onChange={(e) => setColor(parseInt(e))}>
                             <HStack spacing='24px'>
-                                <Radio value='0' onChange={(e) => setColor(e.target.value = 0)}>0</Radio>
-                                <Radio value='1' onChange={(e) => setColor(e.target.value = 1)}>1</Radio>
-                                <Radio value='2' onChange={(e) => setColor(e.target.value = 2)}>2</Radio>
-                                <Radio value='3' onChange={(e) => setColor(e.target.value = 3)}>3</Radio>
-                                <Radio value='4' onChange={(e) => setColor(e.target.value = 4)}>4</Radio>
+                                <Radio value={0} >0</Radio>
+                                <Radio value={1} >1</Radio>
+                                <Radio value={2} >2</Radio>
+                                <Radio value={3} >3</Radio>
+                                <Radio value={4} >4</Radio>
                             </HStack>
                         </RadioGroup>
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel htmlFor='category'>Category</FormLabel>
-                        <Input value={category} onChange={(e) => setCategory(e.target.value)} id='category' placeholder='Category' />
+                        <Select value={category} onChange={(e) => setCategory(e.target.value)} placeholder='Select category'>
+                            {categories.map(category => <option key={category} value={category}>{category}</option>)}
+                        </Select>
                     </FormControl>
                     <Button type="submit" colorScheme='blue'>Share your quote!!</Button>
                 </form>

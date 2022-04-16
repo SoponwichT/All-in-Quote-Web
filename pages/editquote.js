@@ -5,7 +5,8 @@ import {
     Button,
     RadioGroup,
     HStack,
-    Radio
+    Radio,
+    Select
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
@@ -16,8 +17,13 @@ export default function editquote() {
     const [text, setText] = useState("")
     const [author, setAuthor] = useState("")
     const [color, setColor] = useState(0)
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState("Motivational")
     const API_URL = "https://allinquote-server.herokuapp.com/quotes";
+    const categories = ["Motivational",
+    "Inspirational",
+    "Positive",
+    "Life",
+    "Funny"]
 
     const getQuotes = async () => {
         try {
@@ -95,7 +101,9 @@ export default function editquote() {
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel htmlFor='category'>Category</FormLabel>
-                        <Input value={category} onChange={(e) => setCategory(e.target.value)} id='category' placeholder={category} />
+                        <Select value={category} onChange={(e) => setCategory(e.target.value)} placeholder='Select category'>
+                            {categories.map(category => <option key={category} value={category}>{category}</option>)}
+                        </Select>
                     </FormControl>
                     <Button type="submit" colorScheme='blue'>Edit quote</Button>
                 </form>

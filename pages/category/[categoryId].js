@@ -7,17 +7,13 @@ function Category() {
     const { categoryId } = router.query
     const [quotes, setQuotes] = useState([]);
     const [loading, setLoading] = useState(false);
-
-    if (categoryId == "work") {
-        var API_URL = "https://allinquote-server.herokuapp.com/quotes/work";
-    } else if (categoryId == "life") {
-        var API_URL = "https://allinquote-server.herokuapp.com/quotes/life";
-    }
+    const API_URL = "https://allinquote-server.herokuapp.com/quotes/";
+    
 
     const getQuotes = async () => {
         try {
             setLoading(true)
-            const response = await fetch(API_URL);
+            const response = await fetch(API_URL+categoryId);
             const responsedata = await response.json();
             setQuotes(responsedata);
             setLoading(false)
@@ -29,7 +25,9 @@ function Category() {
     }
 
     useEffect(() => {
-        getQuotes();
+        if (categoryId){
+            getQuotes();
+        }
     }, [categoryId])
 
     const quoteData = quotes.data;
