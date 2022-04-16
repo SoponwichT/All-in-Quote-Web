@@ -50,7 +50,6 @@ function Category() {
                     <div className='quote-container flex flex-row max-w-7xl mx-auto gap-y-24 gap-x-12 flex-wrap justify-left pt-10'>
                         {quoteElements}
                     </div>
-
             }
 
         </>

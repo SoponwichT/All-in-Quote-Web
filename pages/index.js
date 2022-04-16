@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import { QuoteCard } from '../components/quotecard'
 import { useState, useEffect } from 'react'
 
+
 export default function Home() {
 
   const [quotes, setQuotes] = useState([]);
@@ -28,7 +29,7 @@ export default function Home() {
 
   const quoteData = quotes.data;
   const quoteElements = quoteData?.map(data => {
-    return <QuoteCard quote={data}/>
+    return <QuoteCard quote={data} getQuotes={() => getQuotes()}/>
   });
 
   return (
@@ -39,3 +40,4 @@ export default function Home() {
     </>
   )
 }
+
