@@ -25,7 +25,8 @@ nav .logo {
   margin-right: auto;
 }
 nav .category {
-  margin-right: 42%;
+  margin-right: auto;
+  padding-right: 25rem;
 }
 nav a{
   margin-left: 100px;

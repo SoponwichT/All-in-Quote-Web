@@ -20,10 +20,11 @@ export default function editquote() {
     const [category, setCategory] = useState("Motivational")
     const API_URL = "https://allinquote-server.herokuapp.com/quotes";
     const categories = ["Motivational",
-    "Inspirational",
-    "Positive",
-    "Life",
-    "Funny"]
+        "Inspirational",
+        "Positive",
+        "Life",
+        "Funny"]
+    
 
     const getQuotes = async () => {
         try {
@@ -91,11 +92,64 @@ export default function editquote() {
                     <FormControl isRequired>
                         <RadioGroup value={color} onChange={(e) => setColor(parseInt(e))}>
                             <HStack spacing='24px'>
-                                <Radio value={0} >0</Radio>
-                                <Radio value={1} >1</Radio>
-                                <Radio value={2} >2</Radio>
-                                <Radio value={3} >3</Radio>
-                                <Radio value={4} >4</Radio>
+                                <Radio value={0} >
+                                    <div
+                                        style={{
+                                            borderRadius: "40%",
+                                            border: "2px solid lightgrey",
+                                            backgroundColor: "#FEF3C7",
+                                            width: "25px",
+                                            height: "25px",
+                                            margin: "2px",
+                                        }}
+                                    ></div>
+                                </Radio>
+                                <Radio value={1} >
+                                    <div
+                                        style={{
+                                            borderRadius: "40%",
+                                            border: "2px solid lightgrey",
+                                            backgroundColor: "#DBEAFE",
+                                            width: "25px",
+                                            height: "25px",
+                                            margin: "2px",
+                                        }}
+                                    ></div>
+                                </Radio>
+                                <Radio value={2} >
+                                    <div
+                                        style={{
+                                            borderRadius: "40%",
+                                            border: "2px solid lightgrey",
+                                            backgroundColor: "#F3E8FF",
+                                            width: "25px",
+                                            height: "25px",
+                                            margin: "2px",
+                                        }}
+                                    ></div>
+                                </Radio>
+                                <Radio value={3} >
+                                    <div
+                                        style={{
+                                            borderRadius: "40%",
+                                            border: "2px solid lightgrey",
+                                            backgroundColor: "#292524",
+                                            width: "25px",
+                                            height: "25px",
+                                            margin: "2px",
+                                        }}
+                                    ></div></Radio>
+                                <Radio value={4} >
+                                    <div
+                                        style={{
+                                            borderRadius: "40%",
+                                            border: "2px solid lightgrey",
+                                            backgroundColor: "#DCFCE7",
+                                            width: "25px",
+                                            height: "25px",
+                                            margin: "2px",
+                                        }}
+                                    ></div></Radio>
                             </HStack>
                         </RadioGroup>
                     </FormControl>
