@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react';
 
-export default function addquote() {
+export default function Addquote() {
     const [text, setText] = useState("")
     const [author, setAuthor] = useState("")
     const [color, setColor] = useState(0)

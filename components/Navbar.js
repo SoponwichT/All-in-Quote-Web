@@ -13,7 +13,7 @@ const Navbar = () => {
                 <Link href="/"><h1 className="cursor-pointer">All in Quote</h1></Link>
             </div>
             <div className="category text-xl font-semibold">
-                {categories.map(category => <Link href={`/category/${category}`}><a>{category}</a></Link>)}
+                {categories.map(category => <Link key={category} href={`/category/${category}`}><a>{category}</a></Link>)}
             </div>
             <div className='text-2xl '>
                 <Link href="/addquote"><a>Share your favorite <AddIcon w={4} h={4} /></a></Link>

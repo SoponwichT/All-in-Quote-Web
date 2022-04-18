@@ -32,7 +32,7 @@ function Category() {
 
     const quoteData = quotes.data;
     const quoteElements = quoteData?.map(data => {
-        return <QuoteCard quote={data} />
+        return <QuoteCard key={data.id} quote={data} />
     });
 
     return (

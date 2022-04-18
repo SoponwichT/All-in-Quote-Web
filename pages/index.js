@@ -29,7 +29,7 @@ export default function Home() {
 
   const quoteData = quotes.data;
   const quoteElements = quoteData?.map(data => {
-    return <QuoteCard quote={data} getQuotes={() => getQuotes()}/>
+    return <QuoteCard key={data.id} quote={data} getQuotes={() => getQuotes()}/>
   });
 
   return (

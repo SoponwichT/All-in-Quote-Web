@@ -11,7 +11,7 @@ import {
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-export default function editquote() {
+export default function Editquote() {
     const router = useRouter()
     const { id } = router.query
     const [text, setText] = useState("")
