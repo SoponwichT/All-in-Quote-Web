@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import { QuoteCard } from "../../components/quotecard"
 import { useState, useEffect } from 'react'
+import { Grid } from 'react-loading-icons'
 
 function Category() {
     const router = useRouter()
@@ -41,9 +42,7 @@ function Category() {
             {
                 (loading)
                     ?
-                    <div className='quote-container flex flex-row max-w-7xl mx-auto gap-y-24 gap-x-12 flex-wrap justify-left pt-10'>
-                        <p className="text-2xl">Loading . . .</p>
-                    </div>
+                    <div className='flex justify-center pt-8'><Grid fill='rgba(6,188,238,1)'/></div>
                     :
                     <div className='quote-container flex flex-row max-w-7xl mx-auto gap-y-24 gap-x-12 flex-wrap justify-left pt-10'>
                         {quoteElements}

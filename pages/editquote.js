@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
+import { Grid } from 'react-loading-icons'
 
 export default function Editquote() {
     const router = useRouter()
@@ -18,13 +19,14 @@ export default function Editquote() {
     const [author, setAuthor] = useState("")
     const [color, setColor] = useState(0)
     const [category, setCategory] = useState("Motivational")
+    const [loading, setLoading] = useState(true);
     const API_URL = "https://allinquote-server.herokuapp.com/quotes";
     const categories = ["Motivational",
         "Inspirational",
         "Positive",
         "Life",
         "Funny"]
-    
+
 
     const getQuotes = async () => {
         try {
@@ -37,6 +39,7 @@ export default function Editquote() {
             setAuthor(quote.author)
             setColor(quote.color)
             setCategory(quote.category)
+            setLoading(false)
             console.log(quote);
         } catch (error) {
             console.log(error);
@@ -79,7 +82,7 @@ export default function Editquote() {
 
     return (
         <>
-            <div>
+            {loading ? <div className='flex justify-center pt-8'><Grid fill='rgba(6,188,238,1)' /></div> : <div className='flex justify-center'>
                 <form onSubmit={editQuote} className='flex flex-col gap-y-6 max-w-md my-6 bg-slate-50 rounded-md shadow-xl p-4 border-2'>
                     <FormControl isRequired>
                         <FormLabel htmlFor='text'>Quote</FormLabel>
@@ -161,7 +164,7 @@ export default function Editquote() {
                     </FormControl>
                     <Button type="submit" colorScheme='blue'>Edit quote</Button>
                 </form>
-            </div>
+            </div>}
         </>
     )
 }
