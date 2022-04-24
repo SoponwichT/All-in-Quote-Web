@@ -95,7 +95,7 @@ export const QuoteCard = ({ quote,getQuotes }) => {
     }
   
     return (
-      <div className='absolute top-0 right-0'>
+      <div className='absolute top-4 right-4 '>
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button><HiDotsVertical/></Menu.Button>
           {/* <Transition as={Fragment}
