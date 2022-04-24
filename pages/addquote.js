@@ -50,7 +50,7 @@ export default function Addquote() {
 
     return (
         <>
-            <div>
+            <div className='flex justify-center'>
                 <form onSubmit={submitQuote} className='flex flex-col gap-y-6 max-w-md my-6 bg-slate-50 rounded-md shadow-xl p-4 border-2'>
                     <FormControl isRequired>
                         <FormLabel htmlFor='text'>Quote</FormLabel>
